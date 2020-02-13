@@ -128,7 +128,7 @@ var _ = Describe("Webhook", func() {
 				ObjectMeta: metav1.ObjectMeta{
 					Name: "some-valid-name",
 				},
-				Spec: types.NetworkAttachmentDefinitionSpec{
+				Spec: nettypes.NetworkAttachmentDefinitionSpec{
 					Config: `{"some-invalid": "config"}`,
 				},
 			},
@@ -140,7 +140,7 @@ var _ = Describe("Webhook", func() {
 				ObjectMeta: metav1.ObjectMeta{
 					Name: "some-valid-name",
 				},
-				Spec: types.NetworkAttachmentDefinitionSpec{
+				Spec: nettypes.NetworkAttachmentDefinitionSpec{
 					Config: `{
             "cniVersion": "0.3.0",
             "type": "some-plugin"
@@ -155,7 +155,7 @@ var _ = Describe("Webhook", func() {
 				ObjectMeta: metav1.ObjectMeta{
 					Name: "some-valid-name",
 				},
-				Spec: types.NetworkAttachmentDefinitionSpec{
+				Spec: nettypes.NetworkAttachmentDefinitionSpec{
 					Config: `{
             "cniVersion": "0.3.0",
             "name": "some-bridge-network",
