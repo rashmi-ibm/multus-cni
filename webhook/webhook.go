@@ -57,7 +57,7 @@ func validateNetworkAttachmentDefinition(netAttachDef nettypes.NetworkAttachment
 	confBytes := []byte(netAttachDef.Spec.Config)
 	_, err = libcni.ConfListFromBytes(confBytes)
 	if err != nil {
-		logging.Printf(logging.DebugLevel, "Spec is not a valid network config: %s. Trying to parse into config list", err)
+		logging.Verbosef("Spec is not a valid network config: %s. Trying to parse into config list", err)
 		_, err = libcni.ConfFromBytes(confBytes)
 		if err != nil {
 			logging.Verbosef("Spec is not a valid network config list: %s", err)
@@ -82,8 +82,8 @@ func prepareAdmissionReviewResponse(allowed bool, message string, ar *v1beta1.Ad
 			}
 		}
 		return nil
-	//} else {
-	//	return fmt.Errorf("AdmissionReview request empty")
+	} else {
+		return fmt.Errorf("AdmissionReview request empty")
 	}
 }
 
